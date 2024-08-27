@@ -95,7 +95,6 @@ def test():
         test_logits = model(test_x)
         test_label = torch.from_numpy(data_labels[all_index]).long().to(DEVICE)
         predict_y = test_logits.max(1)[1]
-        accuarcy = torch.eq(predict_y, test_label).float().mean().item()
         nmi_all = accuracy(test_logits, test_label)
         f1_similary_all = evaluate_score(test_logits, test_label,type=1)
         jacc_similary_all = evaluate_score(test_logits, test_label,type=0)
