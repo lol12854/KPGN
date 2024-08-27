@@ -1,5 +1,5 @@
 ## k-plex
-python k-plex-search
+python k-plex_search
 
 ## KPGN
-python main-football.py
+python main_football.py
