@@ -1,14 +1,3 @@
-# ---- coding: utf-8 ---- 
-# Author       : zdb
-# Date         : 2024/02/29 10:52:20
-# FilePath     : \code\2023Code_DB\2101KP_GS\gs\k-plex-search.py
-# LastEditors  : zdb
-# LastEditTime : 2024/07/16 15:29:01
-# Tool         : VsCode
-# Description  : k-plex查找种子社区
-# 佛祖保佑 永无BUG 
-
-
 #%%
 import networkx as nx
 import pickle as pkl
