@@ -1,28 +1,3 @@
-"""
-更换数据集要改的
-ALL_NODES 
-ALL_EDGES 
-data_init_node_expression
-eumail
-ALL_NODES = 1005 #总节点数
-ALL_EDGES = 25571 #总边数
-football
-ALL_NODES = 115 #总节点数
-ALL_EDGES = 613 #总边数
-zarachy
-ALL_NODES = 34 #总节点数
-ALL_EDGES = 78 #总边数
-lj
-ALL_NODES = 1018 #总节点数
-ALL_EDGES = 7149 #总边数
-dblp815
-ALL_NODES = 815 #总节点数
-ALL_EDGES = 2045 #总边数
-
-dblp1w
-ALL_NODES = 10029 #总节点数
-ALL_EDGES = 29400 #总边数
-"""
 import torch
 
 import numpy as np
@@ -35,7 +10,7 @@ from utils import data_init_node_expression,accuracy,evaluate_score,similary_sam
 from collections import namedtuple
 from torch.optim import lr_scheduler
 
-# adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="../data/zarachy/", dataset="zarachy",beg_val=13,beg_test = 30)
+
 adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="data/football/", dataset="football",beg_val=95,beg_test = 103)
 
 sele_adj_dict = similary_sampling(adj_dict = adjacency_dict,nodes_num = labels.shape[0],getnei_num=30)
