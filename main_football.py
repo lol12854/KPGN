@@ -74,11 +74,6 @@ def train():
         batch_train_logits = batch_all_logits[idx_train]
         loss = criterion(batch_train_logits, batch_src_label)
         loss_martix = loss_full(batch_all_logits,adj4loss,ALL_NODES,ALL_EDGES)
-        # print("loss_martix: ", loss + 0.5 * loss_martix)
-        loss_all = loss + 0.1 * loss_martix
-        optimizer.zero_grad()
-        # loss.backward()  # 反向传播计算参数的梯度
-        loss_all.backward()  # 反向传播计算参数的梯度
         optimizer.step()  # 使用优化方法进行梯度更新
         # scheduler.step() # 学习率调整
         print("Epoch {:03d}  Loss: {:.4f}".format(e,  loss.item()))
@@ -103,7 +98,7 @@ def test():
         print("NMI Score: ", nmi_all)
         print("f1_similary_all: ", f1_similary_all)
         print("jacc_similary_all: ", jacc_similary_all)
-        # print("loss_martix: ", loss_martix)
+        
 
 if __name__ == '__main__':
     train()
