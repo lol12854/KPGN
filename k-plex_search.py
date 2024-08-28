@@ -57,7 +57,7 @@ def runMain(k, lamda,nameofdata,loadG):
 
     dataFile = nameofdata
     print("The Procecing Dataset is ",dataFile," File's storage path is:")
-    OutFilename = "data\\planetoid-master\\tmp\\pubmed\\PubMed\\" + dataFile + 'k' + str(k) + 'l' + str(lamda) + ".content"
+    OutFilename = "data\\pubmed\\PubMed\\" + dataFile + 'k' + str(k) + 'l' + str(lamda) + ".content"
     print(OutFilename)
     common = []
     max_clique_size = G_initial.number_of_nodes()
