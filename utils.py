@@ -70,11 +70,6 @@ def load_data(path="../data/planetoid-master/tmp/pubmed/PubMed/", dataset="pubme
     #进行归一化，对应于论文中的A^=(D~)^0.5 A~ (D~)^0.5,但是本代码实现的是A^=(D~)^-1 A~
     #A^=I+A,sp.eye是单位矩阵
     adj = normalize(adj + sp.eye(adj.shape[0]))
-    # range() 函数创建一个整数列表，构建训练集、验证集、测试集，
-    # 创建特征矩阵、标签向量和邻接矩阵的tensor，用来做模型的输入
-    idx_train = range(140)
-    idx_val = range(200, 500)
-    idx_test = range(500, 1500)
     #todense转化为numpy.matrix
     features = torch.FloatTensor(np.array(features.todense()))
     # 之前将labels转换为one-hot后，再转化为数值类型，如[3 1 1 0 1 1 1 1 2 2 2]
@@ -349,11 +344,11 @@ def loss_full(emb, adj,num_nodes=1005,num_edges=25571):
     loss_edges = -torch.sum(torch.log(-torch.expm1(-eps - edge_dots)))
     # print("--loss_edges: ", loss_edges)
 
-    # Correct for overcounting F_u * F_v for edges and nodes with themselves
-    # self_dots_sum = torch.sum(emb * emb)
-    # correction = self_dots_sum + torch.sum(edge_dots)
-    # sum_emb = torch.sum(emb, dim=0, keepdim=True).t()
-    # loss_nonedges = torch.sum(emb @ sum_emb) - correction
+    Correct for overcounting F_u * F_v for edges and nodes with themselves
+    self_dots_sum = torch.sum(emb * emb)
+    correction = self_dots_sum + torch.sum(edge_dots)
+    sum_emb = torch.sum(emb, dim=0, keepdim=True).t()
+    loss_nonedges = torch.sum(emb @ sum_emb) - correction
 
 
     loss_nonedges= torch.sum(emb * emb) - torch.sum(emb[e1] * emb[e2])
