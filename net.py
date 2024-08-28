@@ -31,16 +31,6 @@ class NeighborAggregator(nn.Module):
             init.zeros_(self.bias)
 
     def forward(self, neighbor_feature):
-        if self.aggr_method == "mean":
-            aggr_neighbor = neighbor_feature.mean(dim=1)
-        elif self.aggr_method == "sum":
-            aggr_neighbor = neighbor_feature.sum(dim=1)
-        elif self.aggr_method == "max":
-            aggr_neighbor = neighbor_feature.max(dim=1)
-        else:
-            raise ValueError("Unknown aggr type, expected sum, max, or mean, but got {}"
-                             .format(self.aggr_method))
-        
         neighbor_hidden = torch.matmul(aggr_neighbor, self.weight)
         # tensor乘法 aggr_nei*w + b
         if self.use_bias:
