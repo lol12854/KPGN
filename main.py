@@ -50,6 +50,11 @@ from torch.optim import lr_scheduler
 
 
 adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="data/football/", dataset="football",beg_val=95,beg_test = 103)
+# adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="/data/zarachy/", dataset="zarachy",beg_val=13,beg_test = 30)
+# adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="../data/football/", dataset="football",beg_val=95,beg_test = 103)
+# adj4loss,adjacency_dict, features, labels  ,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="../data/eumail/", dataset="eumail",beg_val=564,beg_test = 696)
+# adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="data\\lj\\", dataset="lj",beg_val=439,beg_test = 593)
+# adj4loss,adjacency_dict, features, labels,data_labels, idx_train, idx_val, idx_test = data_init_node_expression(path="data/dp1w/", dataset="dp1w",beg_val=3705,beg_test = 5000)
 
 sele_adj_dict = similary_sampling(adj_dict = adjacency_dict,nodes_num = labels.shape[0],getnei_num=30)
 # 利用相似度做采样
