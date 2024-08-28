@@ -61,10 +61,7 @@ def runMain(k, lamda,nameofdata,loadG):
     print(OutFilename)
     common = []
     max_clique_size = G_initial.number_of_nodes()
-    # 最大的clique可以有整张图一样大
-    G_initial.add_nodes_from(list(G_initial.nodes()), community='None')#初始化G_initial所有点的属性为None
     
-    # 使用kCore来删除度不够的节点(m-k是成为k-plex最小的节点度要求)，并放到GACore里边
     def kCore(m, k, GNet, Gn):
         flag = 0
         b = list(Gn.nodes())
@@ -92,7 +89,6 @@ def runMain(k, lamda,nameofdata,loadG):
             #print cliques
             num_cliques = len(cliques)
             clique_sizes = [len(c) for c in cliques]
-            max_clique_size = max(clique_sizes)
             max_cliques = [c for c in cliques if len(c) == max_clique_size]
             max_clique = max_cliques[0]#choose the first one in cliques as the max_clique
             if(max_clique_size <= lamda-1): # 判断选择出来的clique的价值，是否符合最小限制
