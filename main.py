@@ -1,3 +1,41 @@
+
+"""
+更换数据集要改的
+ALL_NODES
+ALL_EDGES
+data_init_node_expression
+eumail
+ALL_NODES = 1005 #总节点数
+ALL_EDGES = 25571 #总边数
+football
+ALL_NODES = 115 #总节点数
+ALL_EDGES = 613 #总边数
+zarachy
+ALL_NODES = 34 #总节点数
+ALL_EDGES = 78 #总边数
+lj
+ALL_NODES = 1018 #总节点数
+ALL_EDGES = 7149 #总边数
+dblp815
+ALL_NODES = 815 #总节点数
+ALL_EDGES = 2045 #总边数
+
+dblp1w
+ALL_NODES = 10029 #总节点数
+ALL_EDGES = 29400 #总边数
+
+Adjnoun
+ALL_NODES = 112 #总节点数
+ALL_EDGES = 425 #总边数
+
+cornell
+ALL_NODES = 195 #总节点数
+ALL_EDGES = 286 #总边数
+
+texas
+ALL_NODES = 187 #总节点数
+ALL_EDGES = 328 #总边数
+"""
 import torch
 
 import numpy as np
